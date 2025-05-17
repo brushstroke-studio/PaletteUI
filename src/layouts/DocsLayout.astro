@@ -1,0 +1,30 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Sidebar } from "@/components/docs/sidebar";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Documentation - Palette UI",
+  description = "Documentation for Palette UI - A Modern UI Component Library",
+} = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <div
+    class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10 w-screen"
+  >
+    <aside
+      class="hidden md:block md:sticky top-14 z-30 h-[calc(100vh-3.5rem)] overflow-y-auto"
+    >
+      <Sidebar client:load />
+    </aside>
+
+    <main class="relative py-6 lg:gap-10 w-screen max-w-4xl">
+      <slot />
+    </main>
+  </div>
+</Layout>

@@ -26,8 +26,9 @@ export function SearchDocumentation() {
   return (
     <>
       <Button
-        variant="outline"
-        className="relative h-9 w-9 md:h-10 md:w-60 md:justify-start md:px-3 md:py-2 lg:w-64"
+        variant="secondary"
+        size={"sm"}
+        className="inline-flex items-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input hover:bg-accent hover:text-accent-foreground px-4 py-2 relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
         onClick={() => setOpen(true)}
       >
         <SearchIcon className="h-4 w-4 md:mr-2" />

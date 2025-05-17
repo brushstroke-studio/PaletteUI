@@ -11,7 +11,7 @@ interface NavbarProps {
 export function Navbar({ className }: NavbarProps) {
   return (
     <header className="sticky top-0 z-50 w-screen border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex items-center justify-center">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container w-screen flex h-16 items-center justify-between">
         <div className="flex items-center gap-2 md:gap-6">
           <a href="/" className="flex items-center gap-2">
             <span className="hidden font-bold md:inline-block text-xl">
@@ -31,7 +31,7 @@ export function Navbar({ className }: NavbarProps) {
         <div className="flex items-center gap-2">
           <SearchDocumentation />
           <a
-            href="https://github.com/Brushstroke-Studio/palette-ui"
+            href="https://github.com/Brushstroke-Studio/PaletteUI"
             target="_blank"
             rel="noreferrer"
           >
@@ -41,9 +41,9 @@ export function Navbar({ className }: NavbarProps) {
             </Button>
           </a>
           <ModeToggle />
-          <Button size="sm" className="hidden md:inline-flex">
-            Install
-          </Button>
+          <a href="/docs" className="hidden md:inline-flex">
+            <Button size="sm">Get Started</Button>
+          </a>
         </div>
       </div>
     </header>
