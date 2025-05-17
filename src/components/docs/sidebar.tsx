@@ -49,12 +49,12 @@ export function Sidebar() {
   const items = [...baseItems, ...categoryItems];
 
   return (
-    <div className="w-full border-border/50 border-r-2 pt-6">
+    <div className="w-full border-border/50 border-r-2 pt-4 px-2">
       <div>
         <div className="space-y-1">
           {items.map((item) => (
             <div key={item.title} className="py-2">
-              <h3 className="mb-1 font-medium text-sm text-foreground px-3">
+              <h3 className="mb-1 text-foreground/40 px-3 text-xs">
                 {item.title}
               </h3>
               <div>
@@ -63,7 +63,7 @@ export function Sidebar() {
                     key={subItem.href}
                     href={subItem.href}
                     className={cn(
-                      "block w-full rounded-md px-3 py-2 text-sm transition-colors",
+                      "block w-full rounded-md px-3 py-1 text-sm transition-colors",
                       pathname === subItem.href
                         ? "bg-primary/10 text-primary"
                         : "hover:bg-muted hover:text-foreground"

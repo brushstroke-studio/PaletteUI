@@ -11,7 +11,7 @@ interface NavbarProps {
 export function Navbar({ className }: NavbarProps) {
   return (
     <header className="sticky top-0 z-50 w-screen border-b-2 border-border/50 bg-background flex items-center justify-center">
-      <div className="container w-screen flex h-16 items-center justify-between">
+      <div className="w-screen flex h-16 items-center justify-between px-6">
         <div className="flex items-center gap-2 md:gap-6">
           <a href="/" className="flex items-center gap-2">
             <span className="hidden font-bold md:inline-block text-xl">

@@ -15,14 +15,18 @@ const {
 
 <Layout title={title} description={description}>
   <div
-    class="container flex-1 items-start md:grid md:grid-cols-[300px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-10 w-screen relative"
+    class="flex-1 items-start md:grid md:grid-cols-[200px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[200px_minmax(0,1fr)] w-screen relative"
   >
-    <aside class="hidden md:block md:sticky top-14 z-30 overflow-y-auto">
+    <aside
+      class="hidden md:block md:sticky top-14 z-30 overflow-y-auto h-screen bg-white/5"
+    >
       <Sidebar client:load />
     </aside>
 
-    <main class="relative py-6 lg:gap-10 w-screen max-w-3xl">
-      <slot />
+    <main class="relative py-6 w-[calc(100%-200px)] flex justify-center">
+      <div class="max-w-3xl lg:gap-10">
+        <slot />
+      </div>
     </main>
   </div>
 </Layout>
