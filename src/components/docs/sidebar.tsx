@@ -25,6 +25,15 @@ export function Sidebar() {
         },
       ],
     },
+    {
+      title: "Components",
+      items: [
+        {
+          title: "Raised Button",
+          href: "/docs/components/raised-button",
+        },
+      ],
+    },
   ];
 
   // Generate items for each category
