@@ -3,7 +3,33 @@ import Layout from "@/layouts/Layout.astro";
 import { Button } from "@/components/ui/button";
 ---
 
-<Layout />
+<Layout>
+  <section
+    class="container flex flex-col items-center gap-6 py-12 text-center md:py-20 lg:py-32"
+  >
+    <h1 class="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
+      Beautiful UI Components
+      <span class="text-primary">for Astro</span>
+    </h1>
+    <p
+      class="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
+    >
+      Palette UI is a beautifully designed component library for building modern
+      web applications with Astro and React.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/docs">
+        <Button size="lg">Get Started</Button>
+      </a>
+      <a
+        href="https://github.com/Brushstroke-Studio/palette-ui"
+        target="_blank"
+      >
+        <Button variant="outline" size="lg">GitHub</Button>
+      </a>
+    </div>
+  </section>
+</Layout>
 
 <style>
   :root {

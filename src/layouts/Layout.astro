@@ -1,4 +1,7 @@
 ---
+import NavbarWithTheme from "@/components/navbar-with-theme";
+import "@/styles/global.css";
+
 export interface Props {
   title?: string;
   description?: string;
@@ -11,7 +14,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,9 +35,24 @@ const {
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen bg-background font-inter antialiased">
-    <div class="relative flex min-h-screen flex-col">
+  <body
+    class="min-h-screen bg-background font-inter antialiased flex flex-col min-w-screen items-center"
+  >
+    <NavbarWithTheme client:load />
+    <main>
       <slot />
-    </div>
+    </main>
+    <script is:inline>
+      const theme = localStorage.getItem("palette-ui-theme");
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+
+      document.documentElement.classList.remove("light", "dark");
+      document.documentElement.classList.add(
+        theme === "system" ? systemTheme : theme || "light"
+      );
+    </script>
   </body>
 </html>
