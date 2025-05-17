@@ -1,17 +1,16 @@
 "use client";
 
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import {
-  hexToRgb,
-  getLuminance,
   getContrastColor,
+  getLuminance,
   parseColor,
 } from "@/registry/utils/colorUtils";
+import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative bg-primary text-primary-foreground hover:bg-primary/90 border border-primary/50 shadow-md before:absolute before:inset-0 before:rounded-md before:border-t before:border-white/40 before:bg-gradient-to-b before:from-white/20 before:to-transparent",
+  "inline-flex items-center justify-center dark:bg-zinc-500 dark:text-white whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative bg-primary text-primary-foreground hover:bg-primary/90 border border-primary/50 shadow-md before:absolute before:inset-0 before:rounded-md before:border-t before:border-white/40 before:bg-gradient-to-b before:from-white/20 before:to-transparent cursor-pointer",
   {
     variants: {
       variant: {
@@ -60,14 +59,20 @@ const RaisedButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         const hoverOpacity = 0.9;
         const whiteBorderOpacity = 0.4; // High elevation white border opacity
         const whiteGradientOpacity = 0.2; // High elevation white gradient opacity
+        const shadowOpacity = 0.2; // Shadow opacity
+        const shadowSpread = "0px"; // Shadow spread
+        const shadowBlur = "5px"; // Shadow blur
 
         return {
           backgroundColor: color,
           color: textColor,
           borderColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${borderOpacity})`,
           "--hover-bg": `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${hoverOpacity})`,
-          "--white-border": `rgba(255, 255, 255, ${whiteBorderOpacity})`,
-          "--white-gradient": `rgba(255, 255, 255, ${whiteGradientOpacity})`,
+          "--border": `rgba(255, 255, 255, ${whiteBorderOpacity})`,
+          "--gradient": `rgba(255, 255, 255, ${whiteGradientOpacity})`,
+          "--shadow-color": `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${shadowOpacity})`,
+          boxShadow: `0 4px ${shadowBlur} ${shadowSpread} var(--shadow-color)`,
+          transition: "all 0.2s ease-in-out",
         };
       } catch (e) {
         console.error("Error processing color:", e);
@@ -79,7 +84,7 @@ const RaisedButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const computedClassName = cn(
       buttonVariants({ variant, size, className }),
       color &&
-        "hover:bg-[color:var(--hover-bg)] before:border-[color:var(--white-border)] before:from-[color:var(--white-gradient)]"
+        "hover:bg-[color:var(--hover-bg)] before:border-[color:var(--border)] before:from-[color:var(--gradient)]"
     );
 
     return (
@@ -97,4 +102,4 @@ const RaisedButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 RaisedButton.displayName = "RaisedButton";
 
-export { RaisedButton, buttonVariants };
+export { buttonVariants, RaisedButton };

@@ -8,7 +8,11 @@ import { RaisedButton } from "@/registry/components/raised-button";
 export function RaisedButtonExamples() {
   return (
     <>
-      <ComponentPreview title="Default" id="default">
+      <ComponentPreview
+        title="Default"
+        id="default"
+        code={`<RaisedButton>Default Raised</RaisedButton>`}
+      >
         <RaisedButton>Default Raised</RaisedButton>
       </ComponentPreview>
 
@@ -16,6 +20,11 @@ export function RaisedButtonExamples() {
         title="Size Variants"
         id="sizes"
         description="Different button sizes"
+        code={`<div className="flex items-center gap-4 flex-wrap">
+  <RaisedButton size="sm">Small</RaisedButton>
+  <RaisedButton size="default">Default</RaisedButton>
+  <RaisedButton size="lg">Large</RaisedButton>
+</div>`}
       >
         <div className="flex items-center gap-4 flex-wrap">
           <RaisedButton size="sm">Small</RaisedButton>
@@ -28,6 +37,13 @@ export function RaisedButtonExamples() {
         title="Color Variants"
         id="colors"
         description="Buttons with different colors"
+        code={`<div className="flex items-center gap-4 flex-wrap">
+  <RaisedButton color="#ff3e3e">Red</RaisedButton>
+  <RaisedButton color="#4caf50">Green</RaisedButton>
+  <RaisedButton color="#2196f3">Blue</RaisedButton>
+  <RaisedButton color="#ff9800">Orange</RaisedButton>
+  <RaisedButton color="#9c27b0">Purple</RaisedButton>
+</div>`}
       >
         <div className="flex items-center gap-4 flex-wrap">
           <RaisedButton color="#ff3e3e">Red</RaisedButton>
@@ -42,6 +58,34 @@ export function RaisedButtonExamples() {
         title="Color Palette Selection"
         id="colorPicker"
         description="Select from predefined colors or choose a custom color"
+        code={`// This is an advanced example with state
+const AdvancedColorExample = () => {
+  const [selectedColor, setSelectedColor] = useState("#3f51b5");
+  
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex gap-2">
+        {["#3f51b5", "#e91e63", "#009688", "#ff5722", "#ffc107"].map((color) => (
+          <button
+            key={color}
+            className="w-8 h-8 rounded-full border"
+            style={{ backgroundColor: color }}
+            onClick={() => setSelectedColor(color)}
+          />
+        ))}
+        <input
+          type="color"
+          value={selectedColor}
+          onChange={(e) => setSelectedColor(e.target.value)}
+          className="w-8 h-8"
+        />
+      </div>
+      <RaisedButton color={selectedColor}>
+        {selectedColor}
+      </RaisedButton>
+    </div>
+  );
+};`}
       >
         <AdvancedColorExample />
       </ComponentPreview>

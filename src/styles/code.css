@@ -1,0 +1,39 @@
+/* Shiki theme toggle for light/dark mode */
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+
+/* Custom styling for code blocks */
+.astro-code {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  overflow: auto;
+}
+
+/* Line highlighting on hover */
+.astro-code .line {
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  min-height: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.astro-code .line:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+:root.dark .astro-code .line:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}

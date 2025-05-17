@@ -5,12 +5,21 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
   site: "https://brushstroke-studio.pages.dev",
   base: "/",
   build: {
-    outDir: "dist"
+    outDir: "dist",
   },
-  integrations: [react()]
+  markdown: {
+    shikiConfig: {
+      // Enable theme toggling between light and dark modes
+      themes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
+    },
+  },
+  integrations: [react()],
 });
