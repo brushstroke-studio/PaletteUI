@@ -1,6 +1,6 @@
 ---
 import DocsLayout from "@/layouts/DocsLayout.astro";
-import { RegistryLoader } from "@/components/ui/registry-component-loader";
+import { RegistryLoader } from "@/components/display/registry-component-loader";
 import registryData from "@/registry/registry-data.json";
 
 // This function generates all possible routes based on components in the registry
@@ -10,7 +10,7 @@ export async function getStaticPaths() {
     params: { component: component.id },
     props: { componentData: component },
   }));
-  
+
   return paths;
 }
 
@@ -22,7 +22,8 @@ const { component } = Astro.params;
 const componentId = component || "";
 
 // Format the component name for the title
-const title = componentData.name || 
+const title =
+  componentData.name ||
   componentId
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -31,7 +32,12 @@ const title = componentData.name ||
 
 <DocsLayout
   title={`${title} - Palette UI`}
-  description={componentData.description || `Documentation for the ${title} component in Palette UI`}
+  description={componentData.description ||
+    `Documentation for the ${title} component in Palette UI`}
 >
-  <RegistryLoader client:load componentId={componentId} initialData={componentData} />
+  <RegistryLoader
+    client:load
+    componentId={componentId}
+    initialData={componentData}
+  />
 </DocsLayout>

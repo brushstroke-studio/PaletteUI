@@ -1,5 +1,25 @@
 ---
 import DocsLayout from "@/layouts/DocsLayout.astro";
+import registryData from "@/registry/registry-data.json";
+
+// Get components from registry
+const { components } = registryData;
+
+// Group components by category
+const componentsByCategory = components.reduce(
+  (acc, component) => {
+    const category = component.category || "Uncategorized";
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(component);
+    return acc;
+  },
+  {} as Record<string, typeof components>
+);
+
+// Get sorted categories
+const categories = Object.keys(componentsByCategory).sort();
 ---
 
 <DocsLayout
@@ -14,21 +34,25 @@ import DocsLayout from "@/layouts/DocsLayout.astro";
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <a
-        href="/docs/components/raised-button"
-        class="group block p-6 rounded-lg border hover:border-primary transition-colors shadow-sm hover:shadow"
-      >
-        <h3 class="text-xl font-semibold mb-2 group-hover:text-primary">
-          Raised Button
-        </h3>
-        <p class="text-muted-foreground">
-          A button component with elevations featuring glossy highlights and
-          depth through shadows.
-        </p>
-      </a>
-
-      <!-- Add more component cards here as they are developed -->
-    </div>
+    {
+      categories.map((category) => (
+        <div class="space-y-4">
+          <h2 class="text-2xl font-bold tracking-tight">{category}</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {componentsByCategory[category].map((component) => (
+              <a
+                href={`/docs/components/${component.id}`}
+                class="group block p-6 rounded-lg border hover:border-primary transition-colors shadow-sm hover:shadow"
+              >
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-primary">
+                  {component.name}
+                </h3>
+                <p class="text-muted-foreground">{component.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))
+    }
   </div>
 </DocsLayout>

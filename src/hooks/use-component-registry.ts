@@ -53,16 +53,16 @@ export function useComponentRegistry() {
 }
 
 export function useComponent(componentId: string, initialData?: ComponentData) {
-    const { registry, loading, error } = initialData ? 
-        { registry: null, loading: false, error: null } : 
+    const { registry, loading, error } = initialData ?
+        { registry: null, loading: false, error: null } :
         useComponentRegistry();
-    
+
     const [component, setComponent] = useState<ComponentData | null>(initialData || null);
 
     useEffect(() => {
         // Skip data fetching if initialData is provided
         if (initialData) return;
-        
+
         if (registry && registry.components) {
             const foundComponent = registry.components.find(c => c.id === componentId);
             setComponent(foundComponent || null);

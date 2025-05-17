@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
-import { RaisedButton } from "@/registry/components/raised-button";
-import { ComponentDisplay } from "@/components/ui/component-display";
-import { ComponentPreview } from "@/components/ui/component-preview";
-import { ComponentUsage } from "@/components/ui/component-usage";
-import { ComponentPropsTable } from "@/components/ui/component-props-table";
+import { ComponentDisplay } from "@/components/display/component-display";
+import { ComponentPreview } from "@/components/display/component-preview";
+import { ComponentPropsTable } from "@/components/display/component-props-table";
+import { ComponentUsage } from "@/components/display/component-usage";
 import { useComponent } from "@/hooks/use-component-registry";
+import { RaisedButton } from "@/registry/components/raised-button";
 
 interface ComponentData {
   id: string;
@@ -30,7 +29,10 @@ interface RegistryLoaderProps {
   initialData?: ComponentData;
 }
 
-export function RegistryLoader({ componentId, initialData }: RegistryLoaderProps) {
+export function RegistryLoader({
+  componentId,
+  initialData,
+}: RegistryLoaderProps) {
   // If initialData is provided, use it directly instead of fetching
   const { component, loading, error } = useComponent(componentId, initialData);
 
@@ -55,27 +57,21 @@ export function RegistryLoader({ componentId, initialData }: RegistryLoaderProps
             title="Default Raised Button"
             description="The standard raised button with medium elevation"
           >
-            <RaisedButton variant="raised" elevation="medium">
-              Default Raised
-            </RaisedButton>
+            <RaisedButton elevation="medium">Default Raised</RaisedButton>
           </ComponentPreview>
 
           <ComponentPreview
             title="Low Elevation"
             description="Raised button with low elevation"
           >
-            <RaisedButton variant="raised" elevation="low">
-              Low Elevation
-            </RaisedButton>
+            <RaisedButton elevation="low">Low Elevation</RaisedButton>
           </ComponentPreview>
 
           <ComponentPreview
             title="High Elevation"
             description="Raised button with high elevation"
           >
-            <RaisedButton variant="raised" elevation="high">
-              High Elevation
-            </RaisedButton>
+            <RaisedButton elevation="high">High Elevation</RaisedButton>
           </ComponentPreview>
 
           <ComponentPreview
@@ -83,30 +79,9 @@ export function RegistryLoader({ componentId, initialData }: RegistryLoaderProps
             description="Different button sizes"
           >
             <div className="flex items-center gap-4 flex-wrap">
-              <RaisedButton variant="raised" size="sm">
-                Small
-              </RaisedButton>
-              <RaisedButton variant="raised" size="default">
-                Default
-              </RaisedButton>
-              <RaisedButton variant="raised" size="lg">
-                Large
-              </RaisedButton>
-            </div>
-          </ComponentPreview>
-
-          <ComponentPreview
-            title="Variant Examples"
-            description="Different button variants"
-          >
-            <div className="flex items-center gap-4 flex-wrap">
-              <RaisedButton variant="default">Default</RaisedButton>
-              <RaisedButton variant="outline">Outline</RaisedButton>
-              <RaisedButton variant="secondary">Secondary</RaisedButton>
-              <RaisedButton variant="destructive">Destructive</RaisedButton>
-              <RaisedButton variant="ghost">Ghost</RaisedButton>
-              <RaisedButton variant="link">Link</RaisedButton>
-              <RaisedButton variant="flat">Flat</RaisedButton>
+              <RaisedButton size="sm">Small</RaisedButton>
+              <RaisedButton size="default">Default</RaisedButton>
+              <RaisedButton size="lg">Large</RaisedButton>
             </div>
           </ComponentPreview>
         </>

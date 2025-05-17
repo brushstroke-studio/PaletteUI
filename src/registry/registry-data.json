@@ -5,30 +5,7 @@
       "name": "Raised Button",
       "description": "A button component with elevations featuring glossy highlights and depth through shadows.",
       "category": "Buttons",
-      "variants": [
-        {
-          "name": "default",
-          "description": "Default button style with primary color"
-        },
-        { "name": "flat", "description": "Flat style with subtle border" },
-        { "name": "raised", "description": "Raised style with 3D effect" }
-      ],
       "props": [
-        {
-          "name": "variant",
-          "type": "string",
-          "description": "Button style variant",
-          "options": [
-            "default",
-            "destructive",
-            "outline",
-            "secondary",
-            "ghost",
-            "link",
-            "flat",
-            "raised"
-          ]
-        },
         {
           "name": "size",
           "type": "string",
@@ -40,12 +17,6 @@
           "type": "string",
           "description": "Elevation level for raised buttons",
           "options": ["none", "low", "medium", "high"]
-        },
-        {
-          "name": "asChild",
-          "type": "boolean",
-          "description": "Whether to merge props onto child",
-          "default": false
         }
       ],
       "usage": "import { RaisedButton } from '@/registry/components/raised-button';\n\n<RaisedButton variant=\"raised\" elevation=\"medium\">Click me</RaisedButton>",
