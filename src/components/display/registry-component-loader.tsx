@@ -1,11 +1,13 @@
 "use client";
 
 import { ComponentDisplay } from "@/components/display/component-display";
-import { ComponentPreview } from "@/components/display/component-preview";
 import { ComponentPropsTable } from "@/components/display/component-props-table";
 import { ComponentUsage } from "@/components/display/component-usage";
 import { useComponent } from "@/hooks/use-component-registry";
-import { RaisedButton } from "@/registry/components/raised-button";
+import {
+  hasComponentExamples,
+  getComponentExamples,
+} from "@/registry/examples";
 
 interface ComponentData {
   id: string;
@@ -13,6 +15,7 @@ interface ComponentData {
   description: string;
   category: string;
   variants: Array<{ name: string; description: string }>;
+  examples?: Record<string, string>;
   props: Array<{
     name: string;
     type: string;
@@ -48,44 +51,10 @@ export function RegistryLoader({
     );
   }
 
-  // Render component examples based on the component ID
-  const renderComponentExamples = () => {
-    if (componentId === "raised-button") {
-      return (
-        <>
-          <ComponentPreview title="Default">
-            <RaisedButton elevation="medium">Default Raised</RaisedButton>
-          </ComponentPreview>
-
-          <ComponentPreview title="Low Elevation">
-            <RaisedButton elevation="low">Low Elevation</RaisedButton>
-          </ComponentPreview>
-
-          <ComponentPreview title="High Elevation">
-            <RaisedButton elevation="high">High Elevation</RaisedButton>
-          </ComponentPreview>
-
-          <ComponentPreview
-            title="Size Variants"
-            description="Different button sizes"
-          >
-            <div className="flex items-center gap-4 flex-wrap">
-              <RaisedButton size="sm">Small</RaisedButton>
-              <RaisedButton size="default">Default</RaisedButton>
-              <RaisedButton size="lg">Large</RaisedButton>
-            </div>
-          </ComponentPreview>
-        </>
-      );
-    }
-
-    // For other component types, return null or a placeholder
-    return (
-      <div className="py-4 text-muted-foreground">
-        No preview available for this component.
-      </div>
-    );
-  };
+  // Dynamically get examples based on component ID
+  const ExamplesComponent = hasComponentExamples(componentId)
+    ? getComponentExamples(componentId)
+    : undefined;
 
   return (
     <ComponentDisplay
@@ -94,7 +63,13 @@ export function RegistryLoader({
     >
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Examples</h2>
-        {renderComponentExamples()}
+        {ExamplesComponent ? (
+          <ExamplesComponent />
+        ) : (
+          <div className="py-4 text-muted-foreground">
+            No examples available for this component.
+          </div>
+        )}
       </div>
 
       <ComponentPropsTable props={component.props} />

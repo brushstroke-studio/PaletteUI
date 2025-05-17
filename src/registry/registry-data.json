@@ -3,8 +3,14 @@
     {
       "id": "raised-button",
       "name": "Raised Button",
-      "description": "A button component with elevations featuring glossy highlights and depth through shadows.",
+      "description": "A button component with a high elevation appearance featuring glossy highlights and depth through shadows.",
       "category": "Buttons",
+      "examples": {
+        "default": "Basic raised button example",
+        "sizes": "Different button size variants",
+        "colors": "Custom color examples",
+        "colorPicker": "Interactive color picker for buttons"
+      },
       "props": [
         {
           "name": "size",
@@ -13,13 +19,12 @@
           "options": ["default", "sm", "lg", "icon"]
         },
         {
-          "name": "elevation",
+          "name": "color",
           "type": "string",
-          "description": "Elevation level for raised buttons",
-          "options": ["none", "low", "medium", "high"]
+          "description": "Custom color for the button. Can be any valid CSS color (hex, rgb, hsl, or named color)"
         }
       ],
-      "usage": "import { RaisedButton } from '@/registry/components/raised-button';\n\n<RaisedButton variant=\"raised\" elevation=\"medium\">Click me</RaisedButton>",
+      "usage": "import { RaisedButton } from '@/registry/components/raised-button';\n\n<RaisedButton>Default Button</RaisedButton>\n<RaisedButton color=\"#3b82f6\">Blue Button</RaisedButton>",
       "filepath": "/registry/components/raised-button.tsx"
     }
   ]
