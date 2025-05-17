@@ -1,13 +1,16 @@
 import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
 
-export default {
+// https://astro.build/config
+export default defineConfig({
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss()]
   },
   site: "https://brushstroke-studio.pages.dev",
   base: "/",
   build: {
-    outDir: "dist",
+    outDir: "dist"
   },
-  integrations: [],
-};
+  integrations: [react()]
+});

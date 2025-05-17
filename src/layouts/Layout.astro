@@ -1,2 +1,40 @@
 ---
-<!-- This file is intentionally left blank. -->
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Palette UI - A Modern UI Component Library",
+  description = "Palette UI is a modern, customizable UI component library built with shadcn/ui and Tailwind CSS.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Palette UI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-background font-inter antialiased">
+    <div class="relative flex min-h-screen flex-col">
+      <slot />
+    </div>
+  </body>
+</html>
