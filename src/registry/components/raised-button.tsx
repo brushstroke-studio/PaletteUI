@@ -25,7 +25,6 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      // Raised variants with different elevations
       {
         variant: "default",
         elevation: "low",

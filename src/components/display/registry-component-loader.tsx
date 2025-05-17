@@ -53,24 +53,15 @@ export function RegistryLoader({
     if (componentId === "raised-button") {
       return (
         <>
-          <ComponentPreview
-            title="Default Raised Button"
-            description="The standard raised button with medium elevation"
-          >
+          <ComponentPreview title="Default">
             <RaisedButton elevation="medium">Default Raised</RaisedButton>
           </ComponentPreview>
 
-          <ComponentPreview
-            title="Low Elevation"
-            description="Raised button with low elevation"
-          >
+          <ComponentPreview title="Low Elevation">
             <RaisedButton elevation="low">Low Elevation</RaisedButton>
           </ComponentPreview>
 
-          <ComponentPreview
-            title="High Elevation"
-            description="Raised button with high elevation"
-          >
+          <ComponentPreview title="High Elevation">
             <RaisedButton elevation="high">High Elevation</RaisedButton>
           </ComponentPreview>
 

@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "generate-component": "node scripts/generate-component.js"
+    "preview": "astro preview"
   },
   "keywords": [
     "astro",

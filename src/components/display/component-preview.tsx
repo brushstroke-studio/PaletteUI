@@ -17,12 +17,12 @@ export function ComponentPreview({
   children,
 }: ComponentPreviewProps) {
   return (
-    <div className={cn("space-y-3", className)}>
+    <div className={cn("my-4", className)}>
       {title && <h3 className="text-xl font-semibold">{title}</h3>}
       {description && (
         <p className="text-sm text-muted-foreground">{description}</p>
       )}
-      <div className="rounded-lg border bg-background p-6">
+      <div className="rounded-lg border bg-background p-6 mt-3">
         <div className="flex min-h-[150px] w-full items-center justify-center">
           {children}
         </div>

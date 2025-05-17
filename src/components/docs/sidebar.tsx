@@ -49,15 +49,15 @@ export function Sidebar() {
   const items = [...baseItems, ...categoryItems];
 
   return (
-    <div className="w-full sticky top-0">
-      <div className="py-4">
+    <div className="w-full border-border/50 border-r-2 pt-6">
+      <div>
         <div className="space-y-1">
           {items.map((item) => (
             <div key={item.title} className="py-2">
               <h3 className="mb-1 font-medium text-sm text-foreground px-3">
                 {item.title}
               </h3>
-              <div className="space-y-1">
+              <div>
                 {item.items?.map((subItem) => (
                   <a
                     key={subItem.href}
