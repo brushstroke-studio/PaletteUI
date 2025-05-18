@@ -33,7 +33,7 @@ function Button({ className, size, asChild = false, ...props }: ButtonProps) {
   return (
     <div
       className={cn(
-        "inline-block mb-6 relative p-[3px] shadow-[0_0_16px_0_rgba(0,0,0,0.08),_inset_0_0_1px_1px_rgba(0,0,0,0.25)] rounded-full",
+        "inline-block mb-6 relative p-[3px] shadow-[0_0_16px_0_rgba(0,0,0,0.08),_inset_0_0_1px_1px_rgba(0,0,0,0.25)] rounded-full transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]",
         size === "sm" ? "p-[2px]" : "",
         size === "lg" ? "p-[4px]" : "",
         className

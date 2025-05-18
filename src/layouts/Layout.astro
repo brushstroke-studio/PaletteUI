@@ -2,6 +2,7 @@
 import Navbar from "@/components/navbar";
 import "@/styles/global.css";
 import "@fontsource/inter";
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   title?: string;
@@ -34,7 +35,8 @@ const {
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
       rel="stylesheet"
-    />
+      />
+      <ClientRouter/>
   </head>
   <body
     class="min-h-screen bg-background font-inter antialiased flex flex-col min-w-screen items-center overflow-x-hidden"
