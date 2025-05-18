@@ -61,6 +61,8 @@ export function RegistryLoader({
       title={component.name}
       description={component.description}
     >
+      <ComponentUsage code={component.usage} />
+
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Examples</h2>
         {ExamplesComponent ? (
@@ -73,8 +75,6 @@ export function RegistryLoader({
       </div>
 
       <ComponentPropsTable props={component.props} />
-
-      <ComponentUsage code={component.usage} />
     </ComponentDisplay>
   );
 }

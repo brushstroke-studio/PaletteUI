@@ -8,30 +8,13 @@ import { RaisedButton } from "@/registry/components/raised-button";
 export function RaisedButtonExamples() {
   return (
     <>
-      <ComponentPreview
+      {/* <ComponentPreview
         title="Default"
         id="default"
         code={`<RaisedButton>Default Raised</RaisedButton>`}
       >
-        <RaisedButton>Default Raised</RaisedButton>
-      </ComponentPreview>
-
-      <ComponentPreview
-        title="Size Variants"
-        id="sizes"
-        description="Different button sizes"
-        code={`<div className="flex items-center gap-4 flex-wrap">
-  <RaisedButton size="sm">Small</RaisedButton>
-  <RaisedButton size="default">Default</RaisedButton>
-  <RaisedButton size="lg">Large</RaisedButton>
-</div>`}
-      >
-        <div className="flex items-center gap-4 flex-wrap">
-          <RaisedButton size="sm">Small</RaisedButton>
-          <RaisedButton size="default">Default</RaisedButton>
-          <RaisedButton size="lg">Large</RaisedButton>
-        </div>
-      </ComponentPreview>
+        <RaisedButton>Default</RaisedButton>
+      </ComponentPreview> */}
 
       <ComponentPreview
         title="Color Variants"
@@ -51,6 +34,23 @@ export function RaisedButtonExamples() {
           <RaisedButton color="#2196f3">Blue</RaisedButton>
           <RaisedButton color="#ff9800">Orange</RaisedButton>
           <RaisedButton color="#9c27b0">Purple</RaisedButton>
+        </div>
+      </ComponentPreview>
+
+      <ComponentPreview
+        title="Size Variants"
+        id="sizes"
+        description="Different button sizes"
+        code={`<div className="flex items-center gap-4 flex-wrap">
+  <RaisedButton size="sm">Small</RaisedButton>
+  <RaisedButton size="default">Default</RaisedButton>
+  <RaisedButton size="lg">Large</RaisedButton>
+</div>`}
+      >
+        <div className="flex items-center gap-4 flex-wrap">
+          <RaisedButton size="sm">Small</RaisedButton>
+          <RaisedButton size="default">Default</RaisedButton>
+          <RaisedButton size="lg">Large</RaisedButton>
         </div>
       </ComponentPreview>
 

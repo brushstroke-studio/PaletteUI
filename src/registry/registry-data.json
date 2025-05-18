@@ -24,7 +24,7 @@
           "description": "Custom color for the button. Can be any valid CSS color (hex, rgb, hsl, or named color)"
         }
       ],
-      "usage": "import { RaisedButton } from '@/registry/components/raised-button';\n\n<RaisedButton>Default Button</RaisedButton>\n<RaisedButton color=\"#3b82f6\">Blue Button</RaisedButton>",
+      "usage": "<div className=\"space-x-2\">\n        <RaisedButton>Default Button</RaisedButton>\n        <RaisedButton color=\"#3b82f6\">Blue Button</RaisedButton>\n</div>",
       "filepath": "/registry/components/raised-button.tsx"
     }
   ]

@@ -3,12 +3,17 @@
 @import "./code.css";
 
 @custom-variant dark (&:is(.dark *));
-
+/* 
 * {
   font-family: "Inter", sans-serif;
 }
 code {
   font-family: "Courier New", Courier, monospace;
+} */
+
+@theme {
+  --font-sans: "Inter", "sans-serif";
+  --font-code: "Courier New", Courier, monospace;
 }
 
 @theme inline {

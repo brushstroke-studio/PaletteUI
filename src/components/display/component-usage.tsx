@@ -1,22 +1,21 @@
 "use client";
 
-import React from "react";
-import { cn } from "@/lib/utils";
+import { RaisedButton } from "@/registry/components/raised-button";
+import { ComponentPreview } from "./component-preview";
 
 interface ComponentUsageProps {
   code: string;
   className?: string;
+  language?: string;
 }
 
-export function ComponentUsage({ code, className }: ComponentUsageProps) {
+export function ComponentUsage({ code }: ComponentUsageProps) {
   return (
-    <div className={cn("space-y-2", className)}>
-      <h3 className="text-xl font-semibold">Usage</h3>
-      <div className="rounded-md bg-slate-900 p-4 overflow-x-auto">
-        <pre className="text-sm text-slate-50 font-mono">
-          <code>{code}</code>
-        </pre>
+    <ComponentPreview title="Usage" code={code}>
+      <div className="space-x-2">
+        <RaisedButton>Default Button</RaisedButton>
+        <RaisedButton color="#3b82f6">Blue Button</RaisedButton>
       </div>
-    </div>
+    </ComponentPreview>
   );
 }
