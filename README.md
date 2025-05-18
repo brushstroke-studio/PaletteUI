@@ -1,46 +1,23 @@
 # PaletteUI
 
-PaletteUI is a UI library built with Astro. This library provides a set of components and utilities designed to help you create beautiful and responsive user interfaces.
+A modern React/Astro UI component library by [Brushstroke Studio](https://brushstroke-studio.pages.dev/) - crafting beautiful web experiences.
 
-## Getting Started
+## About Brushstroke Studio
 
-To get started with PaletteUI, follow these steps:
+We're a web design studio specializing in creating custom, high-performing websites that convert visitors into customers. From responsive designs and fast loading times to SEO setup and AI-powered integrations, we deliver complete web solutions that elevate your digital presence.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/palette-ui.git
-   cd palette-ui
-   ```
+## Features
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+- Modern, responsive components
+- Customizable themes
+- Accessibility focused
+- TypeScript support
+- Easy to integrate
 
-3. **Run the development server:**
-   ```bash
-   npm run dev
-   ```
+## Coming Soon
 
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
-
-## Project Structure
-
-- `src/index.ts`: Entry point for the UI library.
-- `src/layouts/Layout.astro`: Layout component for consistent structure.
-- `src/styles/global.css`: Global styles for the library.
-- `public/favicon.svg`: Favicon for the project.
-- `astro.config.mjs`: Configuration file for Astro.
-- `package.json`: npm configuration file.
-- `tsconfig.json`: TypeScript configuration file.
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or features you'd like to see.
+📦 **npm package:** `@brushstroke/palette-ui` - available soon!
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.# PaletteUI
+This project is licensed under the MIT License. See the LICENSE file for details.

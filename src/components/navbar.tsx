@@ -51,7 +51,7 @@ export default function Navbar() {
             </a>
             <ModeToggle />
             <a href="/docs" className="hidden md:inline-flex">
-              <RaisedButton>Get Started</RaisedButton>
+              <RaisedButton color="#2196f3">Get Started</RaisedButton>
             </a>
           </div>
         </div>
