@@ -1,11 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Button } from "@/components/ui/button";
+import { RaisedButton } from "@/registry/components/raised-button";
 ---
 
 <Layout>
   <section
-    class="container flex flex-col items-center gap-6 py-12 text-center md:py-20 lg:py-32"
+    class="container flex flex-col items-center gap-6 py-12 text-center md:py-20 lg:py-32 justify-center h-[80vh]"
   >
     <h1 class="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
       Beautiful UI Components
@@ -19,13 +20,13 @@ import { Button } from "@/components/ui/button";
     </p>
     <div class="flex flex-wrap justify-center gap-4">
       <a href="/docs">
-        <Button size="lg">Get Started</Button>
+        <RaisedButton size="lg" color="#2196f3">Get Started</RaisedButton>
       </a>
       <a
         href="https://github.com/Brushstroke-Studio/palette-ui"
         target="_blank"
       >
-        <Button variant="outline" size="lg">GitHub</Button>
+        <RaisedButton size="lg">GitHub</RaisedButton>
       </a>
     </div>
   </section>

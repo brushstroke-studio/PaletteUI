@@ -5,11 +5,12 @@
       "name": "Raised Button",
       "description": "A button component with a high elevation appearance featuring glossy highlights and depth through shadows.",
       "category": "Buttons",
-      "examples": {
+      "demos": {
         "default": "Basic raised button example",
         "sizes": "Different button size variants",
         "colors": "Custom color examples",
-        "colorPicker": "Interactive color picker for buttons"
+        "colorPicker": "Interactive color picker for buttons",
+        "usage": "Common usage patterns for the Raised Button component"
       },
       "props": [
         {
@@ -24,7 +25,6 @@
           "description": "Custom color for the button. Can be any valid CSS color (hex, rgb, hsl, or named color)"
         }
       ],
-      "usage": "<div className=\"space-x-2\">\n        <RaisedButton>Default Button</RaisedButton>\n        <RaisedButton color=\"#3b82f6\">Blue Button</RaisedButton>\n</div>",
       "filepath": "/registry/components/raised-button.tsx"
     },
     {
@@ -32,9 +32,10 @@
       "name": "Metalmorphism Button",
       "description": "A button with a metallic appearance featuring gradient highlights, reflections, and a colorful glow effect.",
       "category": "Buttons",
-      "examples": {
+      "demos": {
         "default": "Basic metalmorphism button",
-        "sizes": "Different size variants"
+        "sizes": "Different size variants",
+        "usage": "Common usage patterns for the Metalmorphism Button component"
       },
       "props": [
         {
@@ -54,7 +55,6 @@
           "description": "Change the component to the HTML tag or custom component of the only child"
         }
       ],
-      "usage": "import { Button } from \"@/registry/components/metalmorpism-button\";\n\n// Basic usage\n<Button>Get early access</Button>\n",
       "filepath": "/registry/components/metalmorpism-button.tsx"
     }
   ]

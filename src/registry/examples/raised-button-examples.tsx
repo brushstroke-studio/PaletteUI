@@ -8,13 +8,6 @@ import { RaisedButton } from "@/registry/components/raised-button";
 export function RaisedButtonExamples() {
   return (
     <>
-      {/* <ComponentPreview
-        title="Default"
-        id="default"
-        code={`<RaisedButton>Default Raised</RaisedButton>`}
-      >
-        <RaisedButton>Default</RaisedButton>
-      </ComponentPreview> */}
 
       <ComponentPreview
         title="Color Variants"

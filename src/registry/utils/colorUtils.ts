@@ -1,3 +1,4 @@
+import colorName from 'color-name';
 // Color utility functions for the RaisedButton component
 
 /**
@@ -119,18 +120,11 @@ export function parseColor(color: string): { r: number; g: number; b: number } |
                 };
             }
         } else {
-            // Server-side fallback - handle common color names
-            const colorMap: Record<string, { r: number; g: number; b: number }> = {
-                black: { r: 0, g: 0, b: 0 },
-                white: { r: 255, g: 255, b: 255 },
-                red: { r: 255, g: 0, b: 0 },
-                green: { r: 0, g: 128, b: 0 },
-                blue: { r: 0, g: 0, b: 255 },
-                yellow: { r: 255, g: 255, b: 0 },
-                purple: { r: 128, g: 0, b: 128 },
-                gray: { r: 128, g: 128, b: 128 },
-                orange: { r: 255, g: 165, b: 0 },
-            };
+            const colorMap: Record<string, { r: number; g: number; b: number }> = {};
+            for (const [name, rgb] of Object.entries(colorName)) {
+                const [r, g, b] = rgb as [number, number, number]; // Type assertion
+                colorMap[name.toLowerCase()] = { r, g, b };
+            }
 
             // Check if the color name exists in our map
             const normalizedColorName = color.toLowerCase().trim();

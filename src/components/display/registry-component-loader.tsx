@@ -2,12 +2,8 @@
 
 import { ComponentDisplay } from "@/components/display/component-display";
 import { ComponentPropsTable } from "@/components/display/component-props-table";
-import { ComponentUsage } from "@/components/display/component-usage";
 import { useComponent } from "@/hooks/use-component-registry";
-import {
-  hasComponentExamples,
-  getComponentExamples,
-} from "@/registry/examples";
+import { getComponentDemo, getAvailableDemoTypes } from "@/registry/demos";
 
 interface ComponentData {
   id: string;
@@ -15,7 +11,7 @@ interface ComponentData {
   description: string;
   category: string;
   variants: Array<{ name: string; description: string }>;
-  examples?: Record<string, string>;
+  demos?: Record<string, string>;
   props: Array<{
     name: string;
     type: string;
@@ -23,7 +19,6 @@ interface ComponentData {
     options?: string[];
     default?: string | boolean | number;
   }>;
-  usage: string;
   filepath: string;
 }
 
@@ -51,9 +46,12 @@ export function RegistryLoader({
     );
   }
 
-  // Dynamically get examples based on component ID
-  const ExamplesComponent = hasComponentExamples(componentId)
-    ? getComponentExamples(componentId)
+  // Dynamically get demos based on component ID
+  const demoTypes = getAvailableDemoTypes(componentId);
+  const hasUsageDemos = demoTypes.includes("usage");
+  const DefaultDemoComponent = getComponentDemo(componentId, "default");
+  const UsageDemoComponent = hasUsageDemos
+    ? getComponentDemo(componentId, "usage")
     : undefined;
 
   return (
@@ -61,18 +59,17 @@ export function RegistryLoader({
       title={component.name}
       description={component.description}
     >
-      <ComponentUsage code={component.usage} />
+      {UsageDemoComponent && (
+        <div className="mb-8">
+          <UsageDemoComponent />
+        </div>
+      )}
 
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Examples</h2>
-        {ExamplesComponent ? (
-          <ExamplesComponent />
-        ) : (
-          <div className="py-4 text-muted-foreground">
-            No examples available for this component.
-          </div>
-        )}
-      </div>
+      {DefaultDemoComponent && (
+        <div className="mb-8">
+          <DefaultDemoComponent />
+        </div>
+      )}
 
       <ComponentPropsTable props={component.props} />
     </ComponentDisplay>
