@@ -32,19 +32,7 @@ export function RegistryLoader({
   initialData,
 }: RegistryLoaderProps) {
   // If initialData is provided, use it directly instead of fetching
-  const { component, loading, error } = useComponent(componentId, initialData);
-
-  if (loading) {
-    return <div className="py-6">Loading component data...</div>;
-  }
-
-  if (error || !component) {
-    return (
-      <div className="py-6 text-red-500">
-        Error: {error || "Component not found"}
-      </div>
-    );
-  }
+  const { component } = useComponent(componentId, initialData);
 
   // Dynamically get demos based on component ID
   const demoTypes = getAvailableDemoTypes(componentId);
@@ -53,6 +41,10 @@ export function RegistryLoader({
   const UsageDemoComponent = hasUsageDemos
     ? getComponentDemo(componentId, "usage")
     : undefined;
+
+  if (!component) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <ComponentDisplay

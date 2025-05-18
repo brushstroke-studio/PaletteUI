@@ -14,7 +14,7 @@ export default function SidebarComponent() {
   const pathname =
     typeof window === "undefined" ? "" : window.location.pathname;
 
-  const { registry, loading, error } = useComponentRegistry();
+  const { registry } = useComponentRegistry();
   const [categories, setCategories] = useState<string[]>([]);
   const [componentsByCategory, setComponentsByCategory] = useState<
     Record<string, any[]>

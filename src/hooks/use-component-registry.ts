@@ -1,6 +1,5 @@
-"use client";
-
 import { useEffect, useState } from "react";
+import registry from "@/registry/registry-data.json";
 
 interface ComponentData {
     id: string;
@@ -8,7 +7,7 @@ interface ComponentData {
     description: string;
     category: string;
     about?: string;
-    variants: Array<{ name: string; description: string }>;
+    variants?: Array<{ name: string; description: string }>;
     demos?: Record<string, string>;
     props: Array<{
         name: string;
@@ -25,37 +24,12 @@ interface RegistryData {
 }
 
 export function useComponentRegistry() {
-    const [registry, setRegistry] = useState<RegistryData | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(() => {
-        async function loadRegistry() {
-            try {
-                const response = await fetch('/src/registry/registry-data.json');
-                if (!response.ok) {
-                    throw new Error('Failed to load registry data');
-                }
-
-                const data = await response.json();
-                setRegistry(data);
-            } catch (err) {
-                console.error("Error loading registry data:", err);
-                setError(err instanceof Error ? err.message : 'Unknown error occurred');
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        loadRegistry();
-    }, []);
-
-    return { registry, loading, error };
-}
+    return { registry: registry as RegistryData }
+};
 
 export function useComponent(componentId: string, initialData?: ComponentData) {
-    const { registry, loading, error } = initialData ?
-        { registry: null, loading: false, error: null } :
+    const { registry } = initialData ?
+        { registry: null } :
         useComponentRegistry();
 
     const [component, setComponent] = useState<ComponentData | null>(initialData || null);
@@ -72,7 +46,5 @@ export function useComponent(componentId: string, initialData?: ComponentData) {
 
     return {
         component,
-        loading: initialData ? false : loading,
-        error: initialData ? null : (component ? error : `Component ${componentId} not found`)
     };
 }
