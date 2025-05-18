@@ -1,10 +1,12 @@
 "use client";
 
 import { RaisedButtonExamples } from "./raised-button-examples";
+import { MetalmorpismButtonExamples } from "./metalmorpism-button-examples";
 
 // A registry of component examples indexed by component ID
 const componentExamples: Record<string, React.ComponentType> = {
     "raised-button": RaisedButtonExamples,
+    "metalmorpism-button": MetalmorpismButtonExamples,
     // Add more component examples here as they're created
     // "button": ButtonExamples,
     // "card": CardExamples,

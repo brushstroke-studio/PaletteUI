@@ -26,6 +26,36 @@
       ],
       "usage": "<div className=\"space-x-2\">\n        <RaisedButton>Default Button</RaisedButton>\n        <RaisedButton color=\"#3b82f6\">Blue Button</RaisedButton>\n</div>",
       "filepath": "/registry/components/raised-button.tsx"
+    },
+    {
+      "id": "metalmorpism-button",
+      "name": "Metalmorphism Button",
+      "description": "A button with a metallic appearance featuring gradient highlights, reflections, and a colorful glow effect.",
+      "category": "Buttons",
+      "examples": {
+        "default": "Basic metalmorphism button",
+        "sizes": "Different size variants"
+      },
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "description": "The content to display inside the button"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "description": "The size of the button",
+          "options": ["default", "sm", "lg", "icon"]
+        },
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "description": "Change the component to the HTML tag or custom component of the only child"
+        }
+      ],
+      "usage": "import { Button } from \"@/registry/components/metalmorpism-button\";\n\n// Basic usage\n<Button>Get early access</Button>\n",
+      "filepath": "/registry/components/metalmorpism-button.tsx"
     }
   ]
 }
