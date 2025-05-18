@@ -1,5 +1,5 @@
 ---
-import NavbarWithTheme from "@/components/navbar-with-theme";
+import Navbar from "@/components/navbar";
 import "@/styles/global.css";
 import "@fontsource/inter";
 
@@ -39,7 +39,7 @@ const {
   <body
     class="min-h-screen bg-background font-inter antialiased flex flex-col min-w-screen items-center overflow-x-hidden"
   >
-    <NavbarWithTheme client:load />
+    <Navbar client:load />
     <main>
       <slot />
     </main>

@@ -14,6 +14,6 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": ["src/**/*.ts", "src/**/*.astro"],
+  "include": ["src/**/*.ts", "src/**/*.astro", "src/components/navbar.tsx"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
