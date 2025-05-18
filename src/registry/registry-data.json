@@ -31,6 +31,7 @@
       "id": "metalmorpism-button",
       "name": "Metalmorphism Button",
       "description": "A button with a metallic appearance featuring gradient highlights, reflections, and a colorful glow effect.",
+      "about": "> As seen on [Cobot](https://cobot.co/) by [Jordan Singer](https://x.com/jsngr/status/1838947760663409070)",
       "category": "Buttons",
       "demos": {
         "default": "Basic metalmorphism button",

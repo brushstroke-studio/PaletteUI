@@ -7,6 +7,7 @@ interface ComponentData {
     name: string;
     description: string;
     category: string;
+    about?: string;
     variants: Array<{ name: string; description: string }>;
     demos?: Record<string, string>;
     props: Array<{

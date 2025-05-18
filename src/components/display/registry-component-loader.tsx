@@ -58,6 +58,7 @@ export function RegistryLoader({
     <ComponentDisplay
       title={component.name}
       description={component.description}
+      about={component.about}
     >
       {UsageDemoComponent && (
         <div className="mb-8">
