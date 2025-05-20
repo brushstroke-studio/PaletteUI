@@ -38,11 +38,19 @@ This document tracks upcoming components and features planned for the Palette UI
   - Color history
 
 - [ ] File Upload Component
+      
   - Drag and drop functionality
+  - Edit and delete btn option
   - Multiple file support
   - Progress indicators
   - File type validation
   - Preview capabilities
+
+- [ ] Search bar
+      
+  - Auto complete
+  - Submit button (icon options)
+  - Customizable placeholders
 
 ## Contributing
 
